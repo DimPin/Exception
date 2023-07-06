@@ -1,4 +1,4 @@
-package HW2;
+
 
 public class HW2Task2and3 {
     public static void main(String[] args) {
