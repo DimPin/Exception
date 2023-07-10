@@ -1,4 +1,4 @@
-package javaErrorException.HomeWork_003;
+package HW3;
 
 import java.util.HashMap;
 

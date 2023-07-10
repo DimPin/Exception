@@ -1,4 +1,4 @@
-package javaErrorException.HomeWork_003;
+package HW3;
 
 public class GenderException extends Exception {
     public void genderException(String str) {

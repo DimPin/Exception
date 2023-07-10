@@ -1,11 +1,11 @@
-package javaErrorException.HomeWork_003;
+package HW3;
 
 import java.util.Scanner;
 
 public class InputData {
     public String[] enterData() {
         Scanner in = new Scanner(System.in);
-        
+
         while (true) {
             System.out.println("Введите текст латинецей через пробел");
             System.out.println("Cтрока должна содержать Фамилию Имя Отчество, дату рождения - дд.мм.гггг, номер телефона - цифры, пол - f/m");
