@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Program {
     public static void main(String[] args) {
         ParsData parsData = new ParsData();
-        String newFileName = null;
+        String fileName = null;
         WriteFile writeFile = new WriteFile();
 
         HashMap<String, Object> data = parsData.parsInputData();
@@ -17,7 +17,7 @@ public class Program {
             }
         }
 
-        newFileName = data.get("lastName") + ".txt";
+        fileName = data.get("lastName") + ".txt";
         StringBuilder stringBuilder = new StringBuilder();
         for (String str : data.keySet()) {
             stringBuilder.append(data.get(str));
@@ -25,7 +25,7 @@ public class Program {
         }
 
         System.out.println(data);
-        String filePath = newFileName;
+        String filePath = fileName;
         writeFile.writeData(String.valueOf(stringBuilder), filePath);
     }
 }
