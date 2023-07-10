@@ -90,7 +90,6 @@ public class ParsData {
                             e.dataException(str);
                         }
                 }
-
             } else if (str.matches("[0-9]+")) {
                 dataHashMap.put("tel", str);
             } else if (str.matches("[A-Za-z]+")) {

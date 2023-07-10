@@ -1,12 +1,9 @@
 package javaErrorException.HomeWork_003;
 
 public class GenderException extends Exception {
-    public GenderException() {
-    }
-
-    public void genderException(String i) {
+    public void genderException(String str) {
         System.out.println("Exception: GenderNotCorrectData");
-        System.out.printf("It`s not correct data: %s", i);
+        System.out.printf("Это не правильный формат: %s", str);
         System.out.println();
     }
 }

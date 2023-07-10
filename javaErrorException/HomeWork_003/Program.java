@@ -26,7 +26,6 @@ public class Program {
 
         System.out.println(data);
         String filePath = newFileName;
-        System.out.println(filePath);
         writeFile.writeData(String.valueOf(stringBuilder), filePath);
     }
 }
