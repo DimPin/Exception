@@ -104,11 +104,13 @@ public class ParsData {
         }
 
         String[] fullName = String.valueOf(stringBuilder).split(" ");
+
         if (fullName.length == 3) {
             dataHashMap.put("lastName", fullName[0]);
             dataHashMap.put("firstName", fullName[1]);
             dataHashMap.put("patronymic", fullName[2]);
         }
+        
         return dataHashMap;
     }
 }
