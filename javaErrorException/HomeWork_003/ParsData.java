@@ -3,34 +3,34 @@ package javaErrorException.HomeWork_003;
 import java.util.HashMap;
 
 public class ParsData {
-
     public HashMap<String, Object> parsInputData() {
         InputData inputData = new InputData();
         String[] data = inputData.enterData();
-        HashMap<String, Object> dataDic = new HashMap<>();
-        StringBuilder sb = new StringBuilder();
-        for (String i : data) {
-            if (i.length() == 1) {
-                if (i.equals("f") || i.equals("m")) {
-                    dataDic.put("sex", i);
-                } else{
+        HashMap<String, Object> dataHashMap = new HashMap<>();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String str : data) {
+            if (str.length() == 1) {
+                if (str.equals("f") || str.equals("m")) {
+                    dataHashMap.put("gender", str);
+                } else {
                     try {
-                        throw new SexException();
-                    } catch (SexException e) {
-                        e.sexException(i);
+                        throw new GenderException();
+                    } catch (GenderException e) {
+                        e.genderException(str);
                     }
                 }
-            } else if (i.matches("\\d{1,2}\\.\\d{1,2}\\.\\d{4}")) {
-                String[] arrayDate = i.split("\\.");
+            } else if (str.matches("\\d{1,2}\\.\\d{1,2}\\.\\d{4}")) {
+                String[] arrayDate = str.split("\\.");
                 boolean flag = true;
                 if (Integer.parseInt(arrayDate[0]) < 0 ||
                         Integer.parseInt(arrayDate[0]) > 31 || Integer.parseInt(arrayDate[1]) < 0 ||
                         Integer.parseInt(arrayDate[1]) > 12 || Integer.parseInt(arrayDate[2]) < 0 ||
                         Integer.parseInt(arrayDate[1]) > 2022) {
                     try {
-                        throw new DateException();
-                    } catch (DateException e) {
-                        e.dataException(i);
+                        throw new DataException();
+                    } catch (DataException e) {
+                        e.dataException(str);
                     }
                 } else {
                     if (Integer.parseInt(arrayDate[2]) % 4 == 0) {
@@ -82,33 +82,34 @@ public class ParsData {
 
                     }
                     if (!flag) {
-                        dataDic.put("date", i);
-                    } else try {
-                        throw new DataException();
-                    } catch (DataException e) {
-                        e.dataException(i);
-                    }
+                        dataHashMap.put("date", str);
+                    } else
+                        try {
+                            throw new DataException();
+                        } catch (DataException e) {
+                            e.dataException(str);
+                        }
                 }
 
-            } else if (i.matches("[0-9]+")) {
-                dataDic.put("tel", i);
-            } else if (i.matches("[A-Za-z]+")) {
-                sb.append(i + " ");
+            } else if (str.matches("[0-9]+")) {
+                dataHashMap.put("tel", str);
+            } else if (str.matches("[A-Za-z]+")) {
+                stringBuilder.append(str + " ");
             } else {
                 try {
                     throw new DataException();
                 } catch (DataException e) {
-                    e.dataException(i);
+                    e.dataException(str);
                 }
             }
         }
-        String[] fullName = String.valueOf(sb).split(" ");
-        if (fullName.length == 3) {
-            dataDic.put("firstName", fullName[1]);
-            dataDic.put("lastName", fullName[0]);
-            dataDic.put("patronymic", fullName[2]);
-        }
-        return dataDic;
-    }
 
+        String[] fullName = String.valueOf(stringBuilder).split(" ");
+        if (fullName.length == 3) {
+            dataHashMap.put("lastName", fullName[0]);
+            dataHashMap.put("firstName", fullName[1]);
+            dataHashMap.put("patronymic", fullName[2]);
+        }
+        return dataHashMap;
+    }
 }
